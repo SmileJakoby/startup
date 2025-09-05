@@ -20,6 +20,12 @@ Commits all staged files, with {string} as the commit message.
 # git push
 Pushes all committed files to the origin (the server)
 
+# git pull
+Pulls all files from the origin (the server) to your machine.
+
+# git diff --name-only --staged
+Shows the names of all changed files in the stage.
+
 ## AWS
 
 My IP address is: 54.81.96.130
