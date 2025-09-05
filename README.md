@@ -28,34 +28,40 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 Clicker games are usually a solitary experience. You click, make an arbitrary number go up, then buy upgrades. Usually these upgrades just make it all happen automatically. Quickly, the number of 'clicks' has lost its sanctity and no longer truly represents a click of the mouse. 
 Global Click seeks to restore the sanctity of a 'click' and instead allow for a cooperative experience, where everyone contributes to making the arbitrary number go up.
 
-### Design
+### Game Design
 
 ![Game Design Image](GameDesignPic.jpg)
 
 The initial login page has nothing particularly special, just a logo with the option to login or register.
 The game page is a familiar setup, with a big button in the middle begging to be clicked. This is how almost every game in the genre does it. Underneath, there is a regularly updated tally of the number of times every player has clicked the button, along with the user's individual clicks made. There is a leaderboard, displaying the top 5 (maybe top 10) users (with their score, of course) and the user's own placement.
 
-
+### Server Design
 ![Server Design Image](ServerDesignPic.jpg)
 Due to the high volume of both users and 'clicks performed', it is more practical to have users send and receive updates periodically (between 1-60s, depending on what I find the server can handle). That means, instead of making a call everytime the user clicks, it will send a call with a sum of the number of clicks done within the timeframe.
 The server will periodically send the user the global number of clicks made, along with the leaderboard in a similar timeframe.
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- A big button to click!
+- Secure login over HTTPS
+- A global tally, showing in realtime how many times the button has been clicked globally
+- A leaderboard, displaying who has contributed the most to the global click tally.
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - To handle the basic structure. 2 pages are anticipated, one for login and one for the game itself.
+- **CSS** - To style and offer light animation. More importantly, to allow the website page to properly accomodate multiple aspect ratios and resolutions.
+- **React** - To handle the logic for login, registration, and logout. Also, I anticipate it is where I will implement the logic for clicking the button (along with other potential game additions).
+- **Service** - To offer endpoints for various API calls. This includes:
+- Registration, login, and logout (you are not allowed to click the button unless if you are logged in)
+- To retrieve an individual user's click tally
+- To retrieve the global click tally
+- To send a sum of all clicks made by the user within a timeframe.
+- To contact a 3rd party api to... set the background color! (I honestly will probably perform more research on potential 3rd party APIs to call)
+- **DB/Login** - To store users, along with how many times they have clicked the button.
+- **WebSocket** - To provide realtime feed of global clicks.
 
 ## 🚀 AWS deliverable
 
