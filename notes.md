@@ -8,22 +8,22 @@
 - [Canvas](https://byu.instructure.com)
 - [MDN](https://developer.mozilla.org)
 
-## Github notes
+# Github notes
 Here are my personal notes for github. I've used Github Desktop for a time now, and am familiar with repositories, cloning, branches, and forks. However, I have seldom used console commands myself so I have written them down here.
 
-# git add {filename}
+## git add {filename}
 Puts {file} into stage
 
-# git commit -am "{string}"
+## git commit -am "{string}"
 Commits all staged files, with {string} as the commit message.
 
-# git push
+## git push
 Pushes all committed files to the origin (the server)
 
-# git pull
+## git pull
 Pulls all files from the origin (the server) to your machine.
 
-# git diff --name-only --staged
+## git diff --name-only --staged
 Shows the names of all changed files in the stage.
 
 ## AWS
