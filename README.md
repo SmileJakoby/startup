@@ -55,11 +55,11 @@ I am going to use the required technologies in the following ways.
 - **CSS** - To style and offer light animation. More importantly, to allow the website page to properly accomodate multiple aspect ratios and resolutions.
 - **React** - To handle the logic for login, registration, and logout. Also, I anticipate it is where I will implement the logic for clicking the button (along with other potential game additions).
 - **Service** - To offer endpoints for various API calls. This includes:
--- Registration, login, and logout (you are not allowed to click the button unless if you are logged in)
--- To retrieve an individual user's click tally
--- To retrieve the global click tally
--- To send a sum of all clicks made by the user within a timeframe.
--- To contact a 3rd party api to... set the background color! (I honestly will probably perform more research on potential 3rd party APIs to call)
+  - Registration, login, and logout (you are not allowed to click the button unless if you are logged in)
+  - To retrieve an individual user's click tally
+  - To retrieve the global click tally
+  - To send a sum of all clicks made by the user within a timeframe.
+  - To contact a 3rd party api to... set the background color! (I honestly will probably perform more research on potential 3rd party APIs to call)
 - **DB/Login** - To store users, along with how many times they have clicked the button.
 - **WebSocket** - To provide realtime feed of global clicks.
 
