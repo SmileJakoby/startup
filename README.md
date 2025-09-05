@@ -30,18 +30,15 @@ Global Click seeks to restore the sanctity of a 'click' and instead allow for a 
 
 ### Design
 
-![Design image](GameDesignPic.jpg)
+![Game Design Image](GameDesignPic.jpg)
 
 The initial login page has nothing particularly special, just a logo with the option to login or register.
 The game page is a familiar setup, with a big button in the middle begging to be clicked. This is how almost every game in the genre does it. Underneath, there is a regularly updated tally of the number of times every player has clicked the button, along with the user's individual clicks made. There is a leaderboard, displaying the top 5 (maybe top 10) users (with their score, of course) and the user's own placement.
 
 
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
+![Server Design Image](ServerDesignPic.jpg)
+Due to the high volume of both users and 'clicks performed', it is more practical to have users send and receive updates periodically (between 1-60s, depending on what I find the server can handle). That means, instead of making a call everytime the user clicks, it will send a call with a sum of the number of clicks done within the timeframe.
+The server will periodically send the user the global number of clicks made, along with the leaderboard in a similar timeframe.
 
 ### Key features
 
