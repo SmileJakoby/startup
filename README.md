@@ -2,25 +2,18 @@
 
 [My Notes](notes.md)
 
-Everyone in the world contributes to clicking a penguin, over and over. 
+Everyone in the world contributes to clicking a button, over and over. 
 Potential features include: 
-* Global leaderboard, with a username/password long
-* Unlockable skins for the penguin after reaching certain milestones. Some are global, some are personal.
+* Global leaderboard, with a username/password login
+* Unlockable skins for the button after reaching certain milestones. Some are global, some are personal.
 * A lucky umbrella, occasionally sent out by the server, which is worth 100 clicks!
 * A banner ad so I can make millions
 * Whatever else this class requires
 
-
-> [!NOTE]
->  This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
-
 > [!NOTE]
 >  If you are not familiar with Markdown then you should review the [documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before continuing.
 
-## 🚀 Specification Deliverable
-
-> [!NOTE]
->  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
+## 🚀 Specification Deliverable.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
@@ -32,7 +25,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Clicker games are usually a solitary experience. You click, make an arbitrary number go up, then buy upgrades. Usually these upgrades just make it all happen automatically. Quickly, the number of 'clicks' has lost its sanctity and no longer truly represents a click of the mouse. 
+Global Click seeks to restore the sanctity of a 'click' and instead allow for a cooperative experience, where everyone contributes to making the arbitrary number go up.
 
 ### Design
 
