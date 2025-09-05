@@ -1,4 +1,4 @@
-# Clicker Co-op
+# The Global Click
 
 [My Notes](notes.md)
 
@@ -30,9 +30,11 @@ Global Click seeks to restore the sanctity of a 'click' and instead allow for a 
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](GameDesignPic.jpg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The initial login page has nothing particularly special, just a logo with the option to login or register.
+The game page is a familiar setup, with a big button in the middle begging to be clicked. This is how almost every game in the genre does it. Underneath, there is a regularly updated tally of the number of times every player has clicked the button, along with the user's individual clicks made. There is a leaderboard, displaying the top 5 (maybe top 10) users (with their score, of course) and the user's own placement.
+
 
 ```mermaid
 sequenceDiagram
