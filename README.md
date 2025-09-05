@@ -1,8 +1,14 @@
-# Your startup name here
+# Clicker Co-op
 
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Everyone in the world contributes to clicking a penguin, over and over. 
+Potential features include: 
+* Global leaderboard, with a username/password long
+* Unlockable skins for the penguin after reaching certain milestones. Some are global, some are personal.
+* A lucky umbrella, occasionally sent out by the server, which is worth 100 clicks!
+* A banner ad so I can make millions
+* Whatever else this class requires
 
 
 > [!NOTE]
