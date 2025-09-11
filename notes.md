@@ -27,7 +27,12 @@ Pulls all files from the origin (the server) to your machine.
 Shows the names of all changed files in the stage.
 
 ## AWS
-Nothing yet.
+Here is what I have learned so far:
+* My Elastic IP Address is 18.213.222.208
+* An Elastic IP Address will redirect to my AWS Instance's IP Address, so that the IP refresh that happens when I restart my instance doesn't screw everything up.
+* I am using an AMI (Amazon Machine Image) provided by the CS260... people.
+* I can ssh into my server by providing a key using the following command:ssh -i [key pair file] ubuntu@[ip address]
+* 
 ## Caddy
 Nothing yet.
 ## HTML
