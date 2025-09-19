@@ -1,26 +1,49 @@
 <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Global Click</title>
+    <link rel="icon" href="PenguinEmoji.png" />
+    </head>
     <body>
-        <main>
+        <aside class="Navigation">
+            <nav>
+                <menu>
+                    <li><a href="index.html">Login</a></li>
+                    <li><a href="play.html">Play</a></li>
+                    <li><a href="leaderboard.html">Leaderboards</a></li>
+                    <li><a href="about.html">About</a></li>
+                </menu>
+            </nav>
+        </aside>
+        <hr />
+        <aside class="Logout">
             <header>
-                <p><a href="index.html">Login</a></p>
-                <p><a href="play.html">Play</a></p>
-                <p><a href="leaderboard.html">Leaderboards</a></p>
-                <p><a href="about.html">About</a></p>
-            </header>
-            <img src="TheGlobalClickLogo.png">
-            <h1>About!</h1>
-            <form method="get" action="play.html">
-                <div>
-                    <span>@</span>
-                    <input type="text" placeholder="your@email.com" />
-                </div>
-                <div>
-                    <span>🔒</span>
-                    <input type="password" placeholder="password" />
-                </div>
-                <button type="submit">Login</button>
-                <button type="submit">Register</button>
+                <form method="get" action="index.html">
+                <button type="submit">Logout</button>
             </form>
+            </header>
+        </aside>
+        <main>
+            <hr />
+            <div id="picture" class="picture-box"><img width="400px" src="meme.png" name="Obligatory3rdPartyCall" alt="random Image" /></div>
+            <p>
+            This project was done for my Web Development class at Brigham Young University.
+            </p>
+            <p>
+            But, while you're here, how about you check out <a href = https://youtu.be/LPHquvNShAo>my game!</a> It is still a work in progress, and this trailer is outdated in many ways now, but it's estimated release date is Q3 2026.    
+            </p>
+            <div id="quote">
+                <div>The bloke who brings bad news never gets a medal.</div>
+                <div>- Some poor guard in Antigone</div>
+            </div>
         </main>
+        <footer>
+            <hr />
+            <span class="text-reset">Jacob Skarda</span>
+            <br />
+            <a href="https://github.com/SmileJakoby/startup">Where the sun doesn't shine (My Github Repo)</a>
+        </footer>
     </body>
 </html>

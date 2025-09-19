@@ -1,28 +1,92 @@
 <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Global Click</title>
+    <link rel="icon" href="PenguinEmoji.png" />
+    </head>
     <body>
-        <aside>
+        <aside class="Navigation">
+            <nav>
+                <menu>
+                    <li><a href="index.html">Login</a></li>
+                    <li><a href="play.html">Play</a></li>
+                    <li><a href="leaderboard.html">Leaderboards</a></li>
+                    <li><a href="about.html">About</a></li>
+                </menu>
+            </nav>
+        </aside>
+        <hr />
+        <aside class="Logout">
             <header>
-                <p><a href="index.html">Login</a></p>
-                <p><a href="play.html">Play</a></p>
-                <p><a href="leaderboard.html">Leaderboards</a></p>
-                <p><a href="about.html">About</a></p>
+                <form method="get" action="index.html">
+                <button type="submit">Logout</button>
+            </form>
             </header>
         </aside>
         <main>
-            <img src="TheGlobalClickLogo.png">
-            <h1>Play!</h1>
-            <form method="get" action="play.html">
-                <div>
-                    <span>@</span>
-                    <input type="text" placeholder="your@email.com" />
-                </div>
-                <div>
-                    <span>🔒</span>
-                    <input type="password" placeholder="password" />
-                </div>
-                <button type="submit">Login</button>
-                <button type="submit">Register</button>
-            </form>
+            <hr />
+            <input type="image" src="PenguinButton.png" id="theButton" />
+            <hr />
+            <div>
+                <label for="globalCount">Global clicks:</label>
+                <input type="text" id="globalCount" value="999,999" readonly />
+            </div>
+            <div>
+                <label for="yourCount">Your clicks:</label>
+                <input type="text" id="yourCount" value="123" readonly />
+            </div>
+            <hr />
         </main>
+        <aside class="Leaderboard">
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Some guy's autoclicker</td>
+                    <td>900,000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Homer Simpson's Bird</td>
+                    <td>20,000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SmileJakoby</td>
+                    <td>10,000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Your Mom</td>
+                    <td>5,000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>My evil twin</td>
+                    <td>3,000</td>
+                </tr>
+                <tr>
+                    <td>600</td>
+                    <td>You</td>
+                    <td>123</td>
+                </tr>
+                </tbody>
+            </table>
+        </aside>
+        <footer>
+            <hr />
+            <span class="text-reset">Jacob Skarda</span>
+            <br />
+            <a href="https://github.com/SmileJakoby/startup">Where the sun doesn't shine (My Github Repo)</a>
+        </footer>
     </body>
 </html>
