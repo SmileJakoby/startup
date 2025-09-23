@@ -62,23 +62,23 @@ I am going to use the required technologies in the following ways.
 
 ## 🚀 AWS deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following: made it work
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://startup.theglobal.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I added 4 pages. Index.html, for the home page, play.html for the game page, leaderboard.html for the leaderboard, and about.html for the about page.
+- [x] **Proper HTML element usage** - I added multiple structure elements to each page, using <div>, <aside>, <main>, <header>, <footer> and <table> to build what should be a future-thinking structure.
+- [x] **Links** - I made it so that if you click Home, About, Play, Leaderboard, or Github, it will take you to the respective page.
+- [x] **Text** - I included placeholder text for every element, along with text for the about section.
+- [x] **3rd party API placeholder** - I linked to a 3rd party API to display a random image everytime you load the 'about' page.
+- [x] **Images** - I included a Logo, a button for the 'play' page, and a random image in the 'about' section.
+- [x] **Login placeholder** - I included placeholder forms for login and registration.
+- [x] **DB data placeholder** -  I included placeholder forms for login and registration, along with placeholder information for a leaderboard.
+- [x] **WebSocket placeholder** - I included a placeholder 'global click tally' that will be updated in real time... eventually.
 
 ## 🚀 CSS deliverable
 
