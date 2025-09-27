@@ -62,6 +62,7 @@ footer{
   padding: 15px 5px 20px 5px;
   background-color: rgb(99, 255, 151);
 }
+#GitLink{}
 #NameText{
   font-size: larger;
 }
@@ -71,17 +72,13 @@ main {
   align-content: center;
   justify-content: center;
   align-items: center;
-  flex: 0 800px;
+  flex: 1 800px;
   display: flex;
   flex-direction: column;
 }
 #TheLogo{
   max-width: 800px;
   width: 100%;
-}
-
-footer{
-
 }
 
 @media (max-width: 600px){
@@ -92,14 +89,29 @@ footer{
   }
   footer{
     display: flex;
-    position: relative;
+    flex-direction: column;
+    position: sticky;
     width: 115%;
-    height: 100px;
+    height: 60px;
+  }
+  #RandomBR{
+    display: none;
   }
   body{
   display: grid;
-  
   grid-template-columns: 0.9fr;
   min-height: 100vh;
+  max-height: 100vh;
+  }
+}
+
+@media screen and (max-width: 600px) and (max-height: 600px){
+  header{
+    display: none;
+  }
+}
+@media screen and (max-height: 500px){
+  footer{
+    display: none;
   }
 }
