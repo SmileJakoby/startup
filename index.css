@@ -9,7 +9,7 @@ header {
   box-sizing: border-box;
   height: 1fr;
   padding: 10px 0px 0px 0px;
-  background-color: aquamarine;
+  background-color: rgb(99, 210, 151);
   width: 200px;
   align-content: center;
   justify-content: top;
@@ -28,8 +28,28 @@ form{
 .sideButton{
   width: 190px;
   margin: 0px;
+  border-radius: 5px;
+  border-width: 5px;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color:rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgb(0, 0, 0, 0.5);
+  border-right-color: rgb(0, 0, 0, 0.5);
 }
-
+#LogoutButton{
+  background-color: rgb(255, 130, 130);
+}
+#LoginButton{
+  background-color: rgb(130, 255, 130);
+}
+#PlayButton{
+  background-color: rgb(130, 226, 255);
+}
+#LeaderboardsButton{
+  background-color: rgb(240, 255, 130);
+}
+#AboutButton{
+  background-color: rgb(130, 130, 255);
+}
 
 footer{
   position: fixed;
@@ -39,8 +59,11 @@ footer{
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 5px 5px 25px 5px;
-  
+  padding: 15px 5px 20px 5px;
+  background-color: rgb(99, 255, 151);
+}
+#NameText{
+  font-size: larger;
 }
 
 
@@ -58,5 +81,25 @@ main {
 }
 
 footer{
-  background-color: aquamarine;
+
+}
+
+@media (max-width: 600px){
+  header{
+    display: flex;
+    width: 115%;
+    height: 275px;
+  }
+  footer{
+    display: flex;
+    position: relative;
+    width: 115%;
+    height: 100px;
+  }
+  body{
+  display: grid;
+  
+  grid-template-columns: 0.9fr;
+  min-height: 100vh;
+  }
 }
