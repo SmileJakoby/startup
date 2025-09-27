@@ -3,6 +3,7 @@ body{
   grid-template-columns: 200px 1fr 200px;
   min-height: 100vh;
   background-color: aliceblue;
+  font-family: 'Lexend', sans-serif;
 }
 
 header {
@@ -62,7 +63,7 @@ footer{
   padding: 15px 5px 20px 5px;
   background-color: rgb(99, 255, 151);
 }
-#GitLink{}
+
 #NameText{
   font-size: larger;
 }
@@ -72,16 +73,54 @@ main {
   align-content: center;
   justify-content: center;
   align-items: center;
-  flex: 1 800px;
   display: flex;
   flex-direction: column;
 }
 #TheLogo{
-  max-width: 800px;
   width: 100%;
+  max-width: 800px;
 }
-
-@media (max-width: 600px){
+#LoginForm{
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.LoginInput
+{
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-right: 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-width: 5px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+}
+.Emoji
+{
+  font-size: 30px;
+}
+.FormButton
+{
+  width: 190px;
+  margin: 0px;
+  border-radius: 5px;
+  border-width: 5px;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color:rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgb(0, 0, 0, 0.5);
+  border-right-color: rgb(0, 0, 0, 0.5);
+}
+#FormLoginButton{
+  background-color: rgb(130, 255, 130);
+}
+#FormRegisterButton{
+  background-color: rgb(255, 130, 130);
+}
+@media (orientation: portrait){
   header{
     display: flex;
     width: 115%;
