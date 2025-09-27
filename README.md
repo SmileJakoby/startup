@@ -84,12 +84,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - There's a header and a footer on the left side of the screen (woahhh rad) that moves to the top/bottom when the screen gets too narrow. Also there's main content on every page.
+- [x] **Navigation elements** - The header has 5 skittles you can click on to navigate around the 4 pages of the website (the red "logout" skittle just takes you to the login page, thus being redundant currently)
+- [x] **Responsive to window resizing** - Too narrow? Move header/footer to the top/bottom respectively. Too short? Remove the footer. Even shorter? Remove the header.
+- [x] **Application elements** - Main page has logo and login form. Play page has button you can click, with two trackers displaying global and personal click count. Leaderboard has a leaderboard. About has some text about this project.
+- [x] **Application text content** - There is indeed text where necessary. Every page has a minor amount of text, with the about page having an entire paragraph of it.
+- [x] **Application images** - The main page has a logo, the play page has a button (the button image will be updated once it is actually implemented), the about page shows a random image each time you load it.
 
 ## 🚀 React part 1: Routing deliverable
 
