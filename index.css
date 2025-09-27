@@ -8,15 +8,26 @@ body{
 header {
   box-sizing: border-box;
   height: 1fr;
-  padding: 10px 0px 0px 10px;
+  padding: 10px 0px 0px 0px;
   background-color: aquamarine;
   width: 200px;
+  align-content: center;
   justify-content: top;
-  align-items: top;
+  align-items: center;
+  text-align: center;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
+  font-size: larger;
+}
+form{
+  padding: 0px;
+  margin: 5px;
+}
+.sideButton{
+  width: 190px;
+  margin: 0px;
 }
 
 
