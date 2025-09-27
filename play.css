@@ -154,27 +154,6 @@ main {
   color: black;
 }
 
-#Leaderboard{
-  align-content: top;
-  justify-content: top;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 100%;
-  padding: 100px;
-  background-color: rgb(99, 210, 151);
-}
-#TableDiv{
-  padding: 100px;
-  border: 50px;
-}
-#Leaderboard table{
-  background-color: #00ff40;
-  border: 50px solid #ccc;
-  border-width: 0px;
-  width: 1px;
-}
 @media (orientation: portrait){
   header{
     display: flex;
