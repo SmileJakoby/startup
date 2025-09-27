@@ -76,7 +76,7 @@ main {
   display: flex;
   flex-direction: column;
 }
-#TheLogo{
+#TheButton{
   width: 100%;
   max-width: 800px;
 }
