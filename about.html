@@ -5,26 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Global Click</title>
     <link rel="icon" href="PenguinEmoji.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="about.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
     </head>
     <body>
-        <aside class="Navigation">
-            <nav>
-                <menu>
-                    <li><a href="index.html">Login</a></li>
-                    <li><a href="play.html">Play</a></li>
-                    <li><a href="leaderboard.html">Leaderboards</a></li>
-                    <li><a href="about.html">About</a></li>
-                </menu>
-            </nav>
-        </aside>
-        <hr />
-        <aside class="Logout">
-            <header>
-                <form method="get" action="index.html">
-                <button type="submit">Logout</button>
+        <header class="Navigation">
+            <form method="get" action="index.html">
+                <button type="submit" class = "SideButton" id="LogoutButton">Logout</button>
             </form>
-            </header>
-        </aside>
+            <form method="get" action="index.html">
+                <button type="submit" class = "SideButton" id="LoginButton">Login</button>
+            </form>
+            <form method="get" action="play.html">
+                <button type="submit" class = "SideButton" id="PlayButton">Play</button>
+            </form>
+            <form method="get" action="leaderboard.html">
+                <button type="submit" class = "SideButton" id="LeaderboardsButton">Leaderboards</button>
+            </form>
+            <form method="get" action="about.html">
+                <button type="submit" class = "SideButton" id="AboutButton">About</button>
+            </form>
+        </header>
         <main>
             <hr />
             <div id="picture" class="picture-box"><img width="400px" src="https://picsum.photos/300/200" name="Obligatory3rdPartyCall" alt="random Image" /></div>
@@ -40,10 +42,10 @@
             </div>
         </main>
         <footer>
-            <hr />
-            <span class="text-reset">Jacob Skarda</span>
-            <br />
-            <a href="https://github.com/SmileJakoby/startup">Where the sun doesn't shine (My Github Repo)</a>
+            <a id="NameText">Jacob Skarda<a>
+            <br id="RandomBR"/>
+            <a id="GitLink" href="https://github.com/SmileJakoby/startup">Where the sun doesn't shine (My Github Repo)</a>
         </footer>
-    </body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+   </body>
 </html>

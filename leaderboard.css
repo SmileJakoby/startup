@@ -64,19 +64,21 @@ footer{
   background-color: rgb(99, 255, 151);
 }
 
+#NameText{
+  font-size: larger;
+}
+
 main {
   align-content: center;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 10px
 }
-table {
+table{
   table-layout: fixed;
-  max-width: 1px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  max-width: 1000px;
   text-align: center;
 }
 
@@ -93,9 +95,12 @@ table {
     width: 115%;
     height: 60px;
   }
+  #RandomBR{
+    display: none;
+  }
   body{
   display: grid;
-  grid-template-columns: 0.9fr;
+  grid-template-columns: 1fr;
   min-height: 100vh;
   max-height: 100vh;
   }
@@ -104,14 +109,14 @@ table {
 @media (max-width: 1000px){
   header{
     display: flex;
-    width: 111.2%;
+    width: 100%;
     height: 275px;
   }
   footer{
     display: flex;
     flex-direction: column;
     position: sticky;
-    width: 111.2%;
+    width: 100%;
     height: 60px;
   }
   #RandomBR{
@@ -119,7 +124,7 @@ table {
   }
   body{
   display: grid;
-  grid-template-columns: 0.9fr;
+  grid-template-columns: 1fr;
   min-height: 100vh;
   max-height: 100vh;
   }
