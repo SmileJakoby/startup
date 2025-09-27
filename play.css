@@ -68,57 +68,90 @@ footer{
   font-size: larger;
 }
 
-
 main {
   align-content: center;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 10px
 }
 #TheButton{
-  width: 100%;
-  max-width: 800px;
+  width: 75%;
+  max-width: 600px;
 }
-#LoginForm{
+#TheButton:active{
+  width: 65%;
+  max-width: 520px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#ClickTracker{
   align-content: center;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
   text-align: center;
 }
-.LoginInput
+#GlobalClicksDiv
 {
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 15px;
-  margin-right: 0px;
+  background-color: #e1ff00;
   border: 1px solid #ccc;
   border-radius: 5px;
   border-width: 5px;
-  font-size: 16px;
-  color: #333;
-  background-color: #f9f9f9;
-}
-.Emoji
-{
-  font-size: 30px;
-}
-.FormButton
-{
-  width: 190px;
-  margin: 0px;
-  border-radius: 5px;
-  border-width: 5px;
+  font-size: xx-large;
+  margin: 3px;
+  width: 75%;
+  max-width: 600px;
   border-top-color: rgba(255, 255, 255, 0.5);
   border-left-color:rgba(255, 255, 255, 0.5);
   border-bottom-color: rgb(0, 0, 0, 0.5);
   border-right-color: rgb(0, 0, 0, 0.5);
 }
-#FormLoginButton{
-  background-color: rgb(130, 255, 130);
+#GlobalClicksText{
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
 }
-#FormRegisterButton{
-  background-color: rgb(255, 130, 130);
+#GlobalCount 
+{
+  width: 80%;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 80px;
+  text-align: center;
+  background-color: #e1ff00;
+  color: black;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+#YourClicksDiv
+{
+  background-color: #00ff40;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-width: 5px;
+  font-size: x-large;
+  margin: 3px;
+  width: 65%;
+  max-width: 520px;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color:rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgb(0, 0, 0, 0.5);
+  border-right-color: rgb(0, 0, 0, 0.5);
+}
+#YourCount
+{
+  width: 80%;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 50px;
+  text-align: center;
+  background-color: #00ff40;
+  color: black;
 }
 @media (orientation: portrait){
   header{
@@ -138,7 +171,31 @@ main {
   }
   body{
   display: grid;
-  grid-template-columns: 0.9fr;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  max-height: 100vh;
+  }
+}
+
+@media (max-width: 200px){
+  header{
+    display: flex;
+    width: 115%;
+    height: 275px;
+  }
+  footer{
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    width: 115%;
+    height: 60px;
+  }
+  #RandomBR{
+    display: none;
+  }
+  body{
+  display: grid;
+  grid-template-columns: 1fr;
   min-height: 100vh;
   max-height: 100vh;
   }
@@ -146,6 +203,9 @@ main {
 
 @media screen and (max-width: 600px) and (max-height: 600px){
   header{
+    display: none;
+  }
+  aside{
     display: none;
   }
 }

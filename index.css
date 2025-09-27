@@ -76,10 +76,11 @@ main {
   display: flex;
   flex-direction: column;
 }
-#TheButton{
-  width: 5000px;
+#TheLogo{
+  width: 100%;
   max-width: 800px;
 }
+
 #LoginForm{
   align-content: center;
   justify-content: center;

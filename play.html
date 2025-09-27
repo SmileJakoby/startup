@@ -29,20 +29,21 @@
         </header>
         <main>
             <input type="image" src="PenguinButton.png" id="TheButton"/>
-            <button type="button" id="TheButton2">
-                <span class="button_icon">
-                    <img src="PenguinButton.png">
-                </span>
-            </button>
-            <div>
-                <p>Global clicks is the websocket portion! It will update in realtime</p>
-                <label for="globalCount">Global clicks:</label>
-                <input type="text" id="globalCount" value="999,999" readonly />
-            </div>
-            <div>
-                <label for="yourCount">Your clicks:</label>
-                <input type="text" id="yourCount" value="123" readonly />
-            </div>
+            <span id="ClickTracker">
+                <div id="GlobalClicksDiv">
+                    <a id="GlobalClicksText">Global clicks:</a>
+                    </br>
+                    <input type="text" id="GlobalCount" value="999,999" disabled />
+                </div>
+                <div id="YourClicksDiv">
+                    <a id="YourClicksText">Your clicks:</a>
+                    </br>
+                    <input type="text" id="YourCount" value="123" disabled />
+                </div>
+                <div>
+                    <p>I am aware that clicking this button in certain aspect ratios makes the rest of the body jump around. This is due to the current implementation being done in CSS, which simply resizes the image and adjusts the margins. When I do the Javascript for this page, I will reimplement the button by changing the image.</p>
+                </div>
+            </span>
             <hr />
         </main>
         <aside class="Leaderboard">
