@@ -1,4 +1,4 @@
-body{
+.body{
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   min-height: 100vh;
@@ -98,7 +98,7 @@ table{
   #RandomBR{
     display: none;
   }
-  body{
+  .body{
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
@@ -122,7 +122,7 @@ table{
   #RandomBR{
     display: none;
   }
-  body{
+  .body{
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
