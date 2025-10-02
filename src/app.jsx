@@ -9,22 +9,32 @@ import { About } from './about/about';
 
 export default function App() {
   return (<BrowserRouter>
-<body>
+<div className="body">
 <header className="Navigation">
             <NavLink to="">
-                <button type="submit" className="SideButton" id="LogoutButton">Logout</button>
+<form>
+                <button type="submit" className="sideButton" id="LogoutButton">Logout</button>
+</form>
             </NavLink>
             <NavLink to="">
-                <button type="submit" className="SideButton" id="LoginButton">Login</button>
+		<form>
+                <button type="submit" className="sideButton" id="LoginButton">Login</button>
+		</form>
             </NavLink>
             <NavLink to="play">
-                <button type="submit" className="SideButton" id="PlayButton">Play</button>
+<form>
+                <button type="submit" className="sideButton" id="PlayButton">Play</button>
+</form>
             </NavLink>
             <NavLink to="leaderboard">
-                <button type="submit" className="SideButton" id="LeaderboardsButton">Leaderboards</button>
+<form>
+                <button type="submit" className="sideButton" id="LeaderboardsButton">Leaderboards</button>
+</form>
             </NavLink>
             <NavLink to="about">
-                <button type="submit" className="SideButton" id="AboutButton">About</button>
+<form>
+                <button type="submit" className="sideButton" id="AboutButton">About</button>
+</form>
             </NavLink>
         </header>
 
@@ -41,7 +51,7 @@ export default function App() {
 <br id="RandomBR"/>
 <a id="GitLink" href="https://github.com/SmileJakoby/startup">Where the sun doesn't shine (My Github Repo)</a>
 </footer>
-</body>
+</div>
 </BrowserRouter>);
 }
 function NotFound() {

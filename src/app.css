@@ -22,7 +22,7 @@ header {
   flex-direction: column;
   font-size: larger;
 }
-NavLink{
+form{
   padding: 0px;
   margin: 5px;
 }

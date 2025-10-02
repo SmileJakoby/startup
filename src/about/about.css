@@ -1,4 +1,4 @@
-body{
+.body{
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   min-height: 100vh;
@@ -35,6 +35,7 @@ form{
   border-left-color:rgba(255, 255, 255, 0.5);
   border-bottom-color: rgb(0, 0, 0, 0.5);
   border-right-color: rgb(0, 0, 0, 0.5);
+  font-family: 'Lexend', sans-serif;
 }
 #LogoutButton{
   background-color: rgb(255, 130, 130);
@@ -94,7 +95,7 @@ main {
   #RandomBR{
     display: none;
   }
-  body{
+  .body{
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
@@ -118,7 +119,7 @@ main {
   #RandomBR{
     display: none;
   }
-  body{
+  .body{
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
