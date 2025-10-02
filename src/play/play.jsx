@@ -8,12 +8,12 @@ export function Play() {
             <span id="ClickTracker">
                 <div id="GlobalClicksDiv">
                     <a id="GlobalClicksText">Global clicks:</a>
-                    </br>
+                    <br />
                     <input type="text" id="GlobalCount" value="999,999" disabled />
                 </div>
                 <div id="YourClicksDiv">
                     <a id="YourClicksText">Your clicks:</a>
-                    </br>
+                    <br />
                     <input type="text" id="YourCount" value="123" disabled />
                 </div>
                 <div>
