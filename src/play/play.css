@@ -75,6 +75,7 @@ main {
   display: flex;
   flex-direction: column;
   padding: 10px
+  background-color: aliceblue;
 }
 #TheButton{
   width: 75%;

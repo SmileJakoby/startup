@@ -4,7 +4,7 @@ import './play.css';
 export function Play() {
   return (
     <main>
-            <input type="image" src="PenguinButton.png" id="TheButton"/>
+            <input type="image" src="PenguinButton.png" id="TheButton" />
             <span id="ClickTracker">
                 <div id="GlobalClicksDiv">
                     <a id="GlobalClicksText">Global clicks:</a>
