@@ -1,28 +1,40 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Play } from './play/play';
+import { Leaderboard } from './leaderboard/leaderboard';
+import { About } from './about/about';
 
 export default function App() {
-  return <body>
+  return (<BrowserRouter>
+<body>
 <header className="Navigation">
-            <form method="get" action="index.html">
-                <button type="submit" className = "SideButton" id="LogoutButton">Logout</button>
-            </form>
-            <form method="get" action="index.html">
-                <button type="submit" className = "SideButton" id="LoginButton">Login</button>
-            </form>
-            <form method="get" action="play.html">
-                <button type="submit" className = "SideButton" id="PlayButton">Play</button>
-            </form>
-            <form method="get" action="leaderboard.html">
-                <button type="submit" className = "SideButton" id="LeaderboardsButton">Leaderboards</button>
-            </form>
-            <form method="get" action="about.html">
-                <button type="submit" className = "SideButton" id="AboutButton">About</button>
-            </form>
+            <NavLink to="">
+                <button type="submit" className="SideButton" id="LogoutButton">Logout</button>
+            </NavLink>
+            <NavLink to="">
+                <button type="submit" className="SideButton" id="LoginButton">Login</button>
+            </NavLink>
+            <NavLink to="play">
+                <button type="submit" className="SideButton" id="PlayButton">Play</button>
+            </NavLink>
+            <NavLink to="leaderboard">
+                <button type="submit" className="SideButton" id="LeaderboardsButton">Leaderboards</button>
+            </NavLink>
+            <NavLink to="about">
+                <button type="submit" className="SideButton" id="AboutButton">About</button>
+            </NavLink>
         </header>
 
-<main>App components go here</main>
+<Routes>
+  <Route path='/' element={<Login />} exact />
+  <Route path='/play' element={<Play />} />
+  <Route path='/leaderboard' element={<Leaderboard />} />
+  <Route path='/about' element={<About />} />
+  <Route path='*' element={<NotFound />} />
+</Routes>
 
 <footer>
 <a id="NameText">Jacob Skarda</a>
@@ -30,4 +42,5 @@ export default function App() {
 <a id="GitLink" href="https://github.com/SmileJakoby/startup">Where the sun doesn't shine (My Github Repo)</a>
 </footer>
 </body>
+</BrowserRouter>);
 }
