@@ -1,5 +1,5 @@
 # CS 260 Notes
-
+# Look I'm going to be honest. I don't want to keep my notes here. I want to keep my notes in OneNote, the digital notebook I've used for every other class in college. 
 [My startup - Simon](https://simon.cs260.click)
 
 ## Helpful links
