@@ -5,11 +5,16 @@ export function ButtonJavaScript() {
 const [buttonPushed, setButtonPushed] = React.useState("PenguinButton.png");
 const [globalCountInt, setGlobalCountInt] = React.useState(Number(localStorage.getItem("globalCountStorage")));
 const [userCountInt, setUserCountInt] = React.useState(Number(localStorage.getItem("UserCount" + localStorage.getItem("userName"))));
+React.useEffect(() => {
+    const myInterval = setInterval(() => {passiveIncreaseToGlobal()}, 200);
+    return () => clearInterval(myInterval);
+}, []);
+
 function pushButton(){
     setButtonPushed("PenguinButtonPushed.png");
-    setGlobalCountInt(globalCountInt + 1);
+    setGlobalCountInt(Number(localStorage.getItem("globalCountStorage")));
     setUserCountInt(userCountInt+1);
-    localStorage.setItem("globalCountStorage",globalCountInt + 1);
+    localStorage.setItem("globalCountStorage",Number(localStorage.getItem("globalCountStorage")) + 1);
     localStorage.setItem("UserCount" + localStorage.getItem("userName"), userCountInt + 1)
 }
 function releaseButton(){
@@ -19,7 +24,14 @@ function mouseLeftButton()
 {
     setButtonPushed("PenguinButton.png");
 }
+function passiveIncreaseToGlobal()
+{
+    setGlobalCountInt(Number(localStorage.getItem("globalCountStorage")));
+    localStorage.setItem("globalCountStorage",Number(localStorage.getItem("globalCountStorage")) + 1);
+}
+
   return (
+
     <main>
             <input type="image" src={buttonPushed} id="TheButton" onMouseDown={() => pushButton()} onMouseUp={() => releaseButton()} onMouseLeave={()=> mouseLeftButton()}/>
             <span id="ClickTracker">
