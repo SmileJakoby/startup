@@ -10,7 +10,7 @@ export function Login({ userName, authState, onAuthChange }) {
         <img src="TheGlobalClickLogo.png" id = "TheLogo" />
         {authState === AuthState.Authenticated && (
             <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
-        ) && <h1>Authenticated</h1>}
+        )}
         {authState === AuthState.Unauthenticated && (
             <Unauthenticated
             userName={userName}
@@ -20,6 +20,5 @@ export function Login({ userName, authState, onAuthChange }) {
             />
         )}
     </main>
-
   );
 }

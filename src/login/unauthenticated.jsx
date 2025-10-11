@@ -24,11 +24,11 @@ export function Unauthenticated(props) {
                 </div>
                 <div>
                     <span className = "Emoji">🐧</span>
-                    <input className= "LoginInput" type="text" placeholder="Email" />
+                    <input className= "LoginInput" type="text" onChange={(e) => setUserName(e.target.value)}placeholder="Email" />
                 </div>
                 <div>
                     <span className = "Emoji">🔒</span>
-                    <input className= "LoginInput" type="password" placeholder="Password" />
+                    <input className= "LoginInput" type="password" onChange={(e) => setPassword(e.target.value)}placeholder="Password" />
                 </div>
                 <button type="submit" className = "FormButton" id = "FormLoginButton" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
                 <button type="submit" className = "FormButton" id = "FormRegisterButton" onClick={() => createUser()} disabled={!userName || !password}>Register</button>
