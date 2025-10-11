@@ -8,11 +8,19 @@ import { Leaderboard } from './leaderboard/leaderboard';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
 
+
+
 export default function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
+  function logout(){
+    localStorage.removeItem("userName");
+    setAuthState(AuthState.Unauthenticated);
+  }
+  
   return (
+    
   
 <BrowserRouter>
 
@@ -20,7 +28,7 @@ export default function App() {
 <header className="Navigation">
             <NavLink to="">
 <form>
-                <button type="submit" className="sideButton" id="LogoutButton">Logout</button>
+                <button type="submit" className="sideButton" id="LogoutButton" onClick={() => logout()}>Logout</button>
 </form>
             </NavLink>
             <NavLink to="">
