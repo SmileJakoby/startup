@@ -17,6 +17,7 @@ export function Leaderboard() {
     var rankCalculateArray = JSON.parse(scoresText)
     if (rankCalculateArray) 
     {
+        rankCalculateArray.sort((a,b) => b.score - a.score)
         for (const [i, score] of rankCalculateArray.entries()) {
         if (score.name == localStorage.getItem("userName"))
         {
@@ -47,6 +48,7 @@ export function Leaderboard() {
 
   // Demonstrates rendering an array with React
   const scoreRows = [];
+  scores.sort((a,b) => b.score - a.score)
   if (scores.length) {
     for (const [i, score] of scores.entries()) {
       scoreRows.push(
@@ -57,6 +59,7 @@ export function Leaderboard() {
         </tr>
       );
     }
+   
   } else {
     scoreRows.push(
       <tr key='0'>
