@@ -1,25 +1,25 @@
 import React from 'react';
 
-export function Login() {
+import { Unauthenticated } from './unauthenticated';
+import { Authenticated } from './authenticated';
+import { AuthState } from './authState';
+
+export function Login({ userName, authState, onAuthChange }) {
   return (
     <main>
-            <img src="TheGlobalClickLogo.png" id = "TheLogo" />
-            <form id="LoginForm" method="get" action="play.html">
-                <div>
-                    <h1>🐧Join the <del>cult</del> click🐧</h1>
-                </div>
-                <div>
-                    <span className = "Emoji">🐧</span>
-                    <input className= "LoginInput" type="text" placeholder="Email" />
-                </div>
-                <div>
-                    <span className = "Emoji">🔒</span>
-                    <input className= "LoginInput" type="password" placeholder="Password" />
-                </div>
-                <button type="submit" className = "FormButton" id = "FormLoginButton">Login</button>
-                <button type="submit" className = "FormButton" id = "FormRegisterButton">Register</button>
-            </form>
-        </main>
+        <img src="TheGlobalClickLogo.png" id = "TheLogo" />
+        {authState === AuthState.Authenticated && (
+            <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
+        ) && <h1>Authenticated</h1>}
+        {authState === AuthState.Unauthenticated && (
+            <Unauthenticated
+            userName={userName}
+            onLogin={(loginUserName) => {
+                onAuthChange(loginUserName, AuthState.Authenticated);
+            }}
+            />
+        )}
+    </main>
 
   );
 }
