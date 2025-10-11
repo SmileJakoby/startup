@@ -5,6 +5,7 @@ import './leaderboard.css';
 
 export function Leaderboard() {
   const [scores, setScores] = React.useState([]);
+  const [myRank, setMyRank] = React.useState(0);
 
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
@@ -13,7 +14,36 @@ export function Leaderboard() {
     if (scoresText) {
       setScores(JSON.parse(scoresText));
     }
+    var rankCalculateArray = JSON.parse(scoresText)
+    if (rankCalculateArray) 
+    {
+        for (const [i, score] of rankCalculateArray.entries()) {
+        if (score.name == localStorage.getItem("userName"))
+        {
+            setMyRank(i+1);
+        }
+        }
+    } 
+    else 
+    {
+    setMyRank(10);
+    }
   }, []);
+//   React.useEffect(() => {
+//     if (scores.length) 
+//     {
+//         for (const [i, score] of scores.entries()) {
+//         if (score.name == localStorage.getItem("userName"))
+//         {
+//             setMyRank(i+1);
+//         }
+//         }
+//     } 
+//     else 
+//     {
+//     setMyRank(10);
+//     }
+//   }, []);
 
   // Demonstrates rendering an array with React
   const scoreRows = [];
@@ -21,10 +51,9 @@ export function Leaderboard() {
     for (const [i, score] of scores.entries()) {
       scoreRows.push(
         <tr key={i}>
-          <td>{i}</td>
-          <td>{score.name.split('@')[0]}</td>
+          <td>{i+1}</td>
+          <td>{score.name}</td>
           <td>{score.score}</td>
-          <td>{score.date}</td>
         </tr>
       );
     }
@@ -38,14 +67,13 @@ export function Leaderboard() {
 
   return (
     <main>
-        <h1>Your rank: #600</h1>
+        <h1>Your rank: #{myRank}</h1>
         <table className="table table-info table-striped" id="LeaderBoardTable">
             <thead className="table-dark" id="LeardBoardHead">
                 <tr>
                     <th>#</th>
                     <th>Name</th>
                     <th>Score</th>
-                    <th>Date</th>
                 </tr>
             </thead>
             <tbody id='scores'>{scoreRows}</tbody>
