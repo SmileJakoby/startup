@@ -28,7 +28,7 @@ export default function App() {
 <header className="Navigation">
             <NavLink to="">
 <form>
-                <button type="submit" className="sideButton" id="LogoutButton" onClick={() => logout()}>Logout</button>
+                {authState === AuthState.Authenticated && <button type="submit" className="sideButton" id="LogoutButton" onClick={() => logout()}>Logout</button>}
 </form>
             </NavLink>
             <NavLink to="">
@@ -38,7 +38,7 @@ export default function App() {
             </NavLink>
             <NavLink to="play">
 <form>
-                <button type="submit" className="sideButton" id="PlayButton">Play</button>
+                {authState === AuthState.Authenticated && <button type="submit" className="sideButton" id="PlayButton">Play</button>}
 </form>
             </NavLink>
             <NavLink to="leaderboard">
