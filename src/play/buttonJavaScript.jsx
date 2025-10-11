@@ -36,7 +36,7 @@ function passiveIncreaseToGlobal()
             <input type="image" src={buttonPushed} id="TheButton" onMouseDown={() => pushButton()} onMouseUp={() => releaseButton()} onMouseLeave={()=> mouseLeftButton()}/>
             <span id="ClickTracker">
                 <div id="GlobalClicksDiv">
-                    <a id="GlobalClicksText">Global clicks:</a>
+                    <a id="GlobalClicksText">(simulated) Global clicks:</a>
                     <br />
                     <input type="text" id="GlobalCount" value={globalCountInt} disabled />
                 </div>

@@ -1,52 +1,55 @@
+
 import React from 'react';
+
 import './leaderboard.css';
 
 export function Leaderboard() {
+  const [scores, setScores] = React.useState([]);
+
+  // Demonstrates calling a service asynchronously so that
+  // React can properly update state objects with the results.
+  React.useEffect(() => {
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      setScores(JSON.parse(scoresText));
+    }
+  }, []);
+
+  // Demonstrates rendering an array with React
+  const scoreRows = [];
+  if (scores.length) {
+    for (const [i, score] of scores.entries()) {
+      scoreRows.push(
+        <tr key={i}>
+          <td>{i}</td>
+          <td>{score.name.split('@')[0]}</td>
+          <td>{score.score}</td>
+          <td>{score.date}</td>
+        </tr>
+      );
+    }
+  } else {
+    scoreRows.push(
+      <tr key='0'>
+        <td colSpan='4'>Be the first to score</td>
+      </tr>
+    );
+  }
+
   return (
     <main>
-            <h1>Your rank: #600</h1>
-            <table className="table table-info table-striped" id="LeaderBoardTable">
-                <thead className="table-dark" id="LeardBoardHead">
+        <h1>Your rank: #600</h1>
+        <table className="table table-info table-striped" id="LeaderBoardTable">
+            <thead className="table-dark" id="LeardBoardHead">
                 <tr>
                     <th>#</th>
                     <th>Name</th>
                     <th>Score</th>
+                    <th>Date</th>
                 </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Some guy's autoclicker</td>
-                    <td>900,000</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Homer Simpson's Bird</td>
-                    <td>20,000</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>SmileJakoby</td>
-                    <td>10,000</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Your Mom</td>
-                    <td>5,000</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>My evil twin</td>
-                    <td>3,000</td>
-                </tr>
-                <tr>
-                    <td>600</td>
-                    <td>You</td>
-                    <td>123</td>
-                </tr>
-                </tbody>
-            </table>
-        </main>
-
+            </thead>
+            <tbody id='scores'>{scoreRows}</tbody>
+        </table>
+    </main>
   );
 }
