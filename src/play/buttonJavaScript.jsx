@@ -16,6 +16,7 @@ function pushButton(){
     setUserCountInt(userCountInt+1);
     localStorage.setItem("globalCountStorage",Number(localStorage.getItem("globalCountStorage")) + 1);
     localStorage.setItem("UserCount" + localStorage.getItem("userName"), userCountInt + 1)
+    saveScore();
 }
 function releaseButton(){
     setButtonPushed("PenguinButton.png");
@@ -29,6 +30,43 @@ function passiveIncreaseToGlobal()
     setGlobalCountInt(Number(localStorage.getItem("globalCountStorage")));
     localStorage.setItem("globalCountStorage",Number(localStorage.getItem("globalCountStorage")) + 1);
 }
+async function saveScore() {
+    const date = new Date().toLocaleDateString();
+    const newScore = { name: localStorage.getItem("userName"), score: localStorage.getItem("UserCount" + localStorage.getItem("userName")), date: date };
+
+    // Let other players know the game has concluded
+    //GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
+
+    updateScoresLocal(newScore);
+  }
+
+function updateScoresLocal(newScore) {
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+        if (newScore.name == prevScore.name)
+        {
+           scores.splice(i,1);
+        }
+    //   if (newScore.score > prevScore.score) {
+    //     scores.splice(i, 0, newScore);
+    //     found = true;
+    //     break;
+    //   }
+    }
+    scores.push(newScore);
+
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+  }
 
   return (
 
