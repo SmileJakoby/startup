@@ -2,22 +2,36 @@ import React from 'react';
 import './play.css'
 
 export function ButtonJavaScript() {
+const [buttonPushed, setButtonPushed] = React.useState("PenguinButton.png");
+const [globalCountInt, setGlobalCountInt] = React.useState(Number(localStorage.getItem("globalCountStorage")));
+const [userCountInt, setUserCountInt] = React.useState(Number(localStorage.getItem("UserCount" + localStorage.getItem("userName"))));
+function pushButton(){
+    setButtonPushed("PenguinButtonPushed.png");
+    setGlobalCountInt(globalCountInt + 1);
+    setUserCountInt(userCountInt+1);
+    localStorage.setItem("globalCountStorage",globalCountInt + 1);
+    localStorage.setItem("UserCount" + localStorage.getItem("userName"), userCountInt + 1)
+}
+function releaseButton(){
+    setButtonPushed("PenguinButton.png");
+}
+function mouseLeftButton()
+{
+    setButtonPushed("PenguinButton.png");
+}
   return (
     <main>
-            <input type="image" src="PenguinButton.png" id="TheButton" />
+            <input type="image" src={buttonPushed} id="TheButton" onMouseDown={() => pushButton()} onMouseUp={() => releaseButton()} onMouseLeave={()=> mouseLeftButton()}/>
             <span id="ClickTracker">
                 <div id="GlobalClicksDiv">
                     <a id="GlobalClicksText">Global clicks:</a>
                     <br />
-                    <input type="text" id="GlobalCount" value="999,999" disabled />
+                    <input type="text" id="GlobalCount" value={globalCountInt} disabled />
                 </div>
                 <div id="YourClicksDiv">
                     <a id="YourClicksText">Your clicks:</a>
                     <br />
-                    <input type="text" id="YourCount" value="123" disabled />
-                </div>
-                <div>
-                    <p>I am aware that clicking this button in certain aspect ratios makes the rest of the body jump around. This is due to the current implementation being done in CSS, which simply resizes the image and adjusts the margins. When I do the Javascript for this page, I will reimplement the button by changing the image.</p>
+                    <input type="text" id="YourCount" value={userCountInt} disabled />
                 </div>
             </span>
             <hr />
