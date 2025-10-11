@@ -10,7 +10,7 @@ export function About() {
             This project was done for my Web Development class at Brigham Young University.
             </p>
             <p>
-            But, while you're here, how about you check out my game! (Link broken I guess) It is still a work in progress, and this trailer is outdated in many ways now, but it's estimated release date is Q3 2026.    
+            But, while you're here, how about you check out <a href="https://youtu.be/LPHquvNShAo">my game!</a> It is still a work in progress, and this trailer is outdated in many ways now, but it's estimated release date is Q3 2026.    
             </p>
             <div id="quote">
                 <div>"General, you know I've always got a card to play."</div>
