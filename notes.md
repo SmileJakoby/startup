@@ -45,4 +45,4 @@ Nothing yet.
 Nothing yet.
 ## React Part 2: Reactivity
 Nothing yet.
-![alt text](https://github.com/SmileJakoby/startup/placeholder.png?raw=true)
+![Alt Text](public/placeholder.png "Optional Title Text")
