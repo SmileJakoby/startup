@@ -46,4 +46,8 @@ Nothing yet.
 ## React Part 2: Reactivity
 Nothing yet.
 
-![Alt Text](public/placeholder.png)
+![Alt Text](MidtermReview/1.png)
+![Alt Text](MidtermReview/2.png)
+![Alt Text](MidtermReview/3.png)
+![Alt Text](MidtermReview/4.png)
+![Alt Text](MidtermReview/5.png)
