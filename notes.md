@@ -45,4 +45,6 @@ Nothing yet.
 Nothing yet.
 ## React Part 2: Reactivity
 Nothing yet.
+
+
 ![Alt Text](public/placeholder.png)
