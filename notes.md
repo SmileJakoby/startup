@@ -45,3 +45,4 @@ Nothing yet.
 Nothing yet.
 ## React Part 2: Reactivity
 Nothing yet.
+[](placeholder.png)
