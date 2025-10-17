@@ -45,4 +45,4 @@ Nothing yet.
 Nothing yet.
 ## React Part 2: Reactivity
 Nothing yet.
-[](public/GameDesignPic.jpg)
+![alt text](https://github.com/SmileJakoby/startup/placeholder.png?raw=true)
