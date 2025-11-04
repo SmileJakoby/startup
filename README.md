@@ -103,8 +103,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Login, Logout, Play, Leaderboard, and About now all function how they ought to! To Login, you need to put in a username and password. After logging in, your status becomes 'authenticated' and you are able to play (and logout). The login screen also changes slightly. Play will now retain much more information. Every time you click, it will be saved. The 'global clicks' is still a mockup, and pretends to go up over time. The leaderboard is fully functional, and is sorted by rank (and also tells you what YOUR rank is!) The about page didn't change much. 
+- [x] **Hooks** - Hooks were absolutely necessary to make the logic work out. Everytime you click, an effect is called and states are changed. Same goes for everytime you view the leaderboard. I even used an interval!
 
 ## 🚀 Service deliverable
 
