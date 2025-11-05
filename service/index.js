@@ -88,6 +88,7 @@ apiRouter.get('/scores', verifyAuth, (_req, res) => {
 
 // SubmitScore
 apiRouter.post('/score', verifyAuth, (req, res) => {
+  console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
   scores = updateScores(req.body);
   res.send(scores);
 });
@@ -112,14 +113,16 @@ function updateScores(newScore) {
       scoreDiff = (newScore.score - prevScore.score);
       prevScore.score = newScore.score;
       found = true;
-      globalCount += scoreDiff;
+      globalCount = parseInt(globalCount) + parseInt(scoreDiff);
       break;
     }
   }
   if (!found) {
     scores.push(newScore);
-    globalCount += newScore.score;
+    globalCount = parseInt(globalCount) + parseInt(newScore.score);
   }
+  console.log(`New global count: ${globalCount}`);
+  
 
   return scores;
 }

@@ -32,11 +32,15 @@ function passiveIncreaseToGlobal()
 }
 async function saveScore() {
     const date = new Date().toLocaleDateString();
-    const newScore = { name: localStorage.getItem("userName"), score: localStorage.getItem("UserCount" + localStorage.getItem("userName")), date: date };
+    const newScore = { username: localStorage.getItem("userName"), score: localStorage.getItem("UserCount" + localStorage.getItem("userName")), date: date };
 
     // Let other players know the game has concluded
     //GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
-
+    await fetch('/api/score', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newScore),
+    });
     updateScoresLocal(newScore);
   }
 
@@ -49,7 +53,7 @@ function updateScoresLocal(newScore) {
 
     let found = false;
     for (const [i, prevScore] of scores.entries()) {
-        if (newScore.name == prevScore.name)
+        if (newScore.username == prevScore.username)
         {
            scores.splice(i,1);
         }
@@ -61,9 +65,9 @@ function updateScoresLocal(newScore) {
     }
     scores.push(newScore);
 
-    if (scores.length > 10) {
-      scores.length = 10;
-    }
+    //if (scores.length > 10) {
+    //  scores.length = 10;
+    //}
 
     localStorage.setItem('scores', JSON.stringify(scores));
   }
