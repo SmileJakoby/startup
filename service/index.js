@@ -115,17 +115,19 @@ app.use((_req, res) => {
 //Updates the globalCount.
 function updateScores(newScore) {
   let found = false;
-  let scoreDiff = 0;
+  let scoreDiff = 1;
   for (const [i, prevScore] of scores.entries()) {
     if (newScore.username == prevScore.username) {
-      scoreDiff = (newScore.score - prevScore.score);
-      prevScore.score = newScore.score;
+      //scoreDiff = (newScore.score - prevScore.score);
+      //prevScore.score = newScore.score;
+      prevScore.score = parseInt(prevScore.score) + parseInt(1);
       found = true;
       globalCount = parseInt(globalCount) + parseInt(scoreDiff);
       break;
     }
   }
   if (!found) {
+    newScore.score = 1;
     scores.push(newScore);
     globalCount = parseInt(globalCount) + parseInt(newScore.score);
   }
