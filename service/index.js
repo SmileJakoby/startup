@@ -81,6 +81,10 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
+apiRouter.get('/checkauth', verifyAuth, (req, res) => {
+  res.status(200).send({ msg: 'Authorized'})
+})
+
 // GetScores
 apiRouter.get('/scores', (_req, res) => {
   res.send(scores);

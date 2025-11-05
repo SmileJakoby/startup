@@ -5,6 +5,8 @@ export function ButtonJavaScript() {
 const [buttonPushed, setButtonPushed] = React.useState("PenguinButton.png");
 const [globalCountInt, setGlobalCountInt] = React.useState(Number(localStorage.getItem("globalCountStorage")));
 const [userCountInt, setUserCountInt] = React.useState(Number(localStorage.getItem("UserCount" + localStorage.getItem("userName"))));
+const [displayError, setDisplayError] = React.useState(null);
+
 React.useEffect(() => {
     const myInterval = setInterval(() => {passiveIncreaseToGlobal()}, 200);
     return () => clearInterval(myInterval);
@@ -36,12 +38,18 @@ async function saveScore() {
 
     // Let other players know the game has concluded
     //GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
-    await fetch('/api/score', {
+    const response = await fetch('/api/score', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newScore),
     });
-    updateScoresLocal(newScore);
+    if (response?.status === 200) {
+        updateScoresLocal(newScore);
+    } else {
+      const body = await response.json();
+      setDisplayError(`⚠ Error: ${body.msg}`);
+    }
+
   }
 
 function updateScoresLocal(newScore) {
@@ -75,21 +83,24 @@ function updateScoresLocal(newScore) {
   return (
 
     <main>
-            <input type="image" src={buttonPushed} id="TheButton" onMouseDown={() => pushButton()} onMouseUp={() => releaseButton()} onMouseLeave={()=> mouseLeftButton()}/>
-            <span id="ClickTracker">
-                <div id="GlobalClicksDiv">
-                    <a id="GlobalClicksText">(simulated) Global clicks:</a>
-                    <br />
-                    <input type="text" id="GlobalCount" value={globalCountInt} disabled />
-                </div>
-                <div id="YourClicksDiv">
-                    <a id="YourClicksText">Your clicks:</a>
-                    <br />
-                    <input type="text" id="YourCount" value={userCountInt} disabled />
-                </div>
-            </span>
-            <hr />
-        </main>
+        <input type="image" src={buttonPushed} id="TheButton" onMouseDown={() => pushButton()} onMouseUp={() => releaseButton()} onMouseLeave={()=> mouseLeftButton()}/>
+        <span id="ClickTracker">
+            <div id="GlobalClicksDiv">
+                <a id="GlobalClicksText">(simulated) Global clicks:</a>
+                <br />
+                <input type="text" id="GlobalCount" value={globalCountInt} disabled />
+            </div>
+            <div id="YourClicksDiv">
+                <a id="YourClicksText">Your clicks:</a>
+                <br />
+                <input type="text" id="YourCount" value={userCountInt} disabled />
+            </div>
+        </span>
+        <hr />
+        <h1>
+        {displayError}
+        </h1>
+    </main>
 
   );
 }
