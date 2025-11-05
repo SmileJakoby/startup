@@ -93,6 +93,10 @@ apiRouter.post('/score', verifyAuth, (req, res) => {
   res.send(scores);
 });
 
+apiRouter.get('/globalcount', (_req, res) => {
+  res.send(globalCount);
+});
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
