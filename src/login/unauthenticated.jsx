@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from 'react-bootstrap/Button';
+import { MessageDialog } from './messageDialog';
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
@@ -33,7 +34,8 @@ export function Unauthenticated(props) {
   }
 
   return (
-    <form id="LoginForm" method="get" action="play">
+    //<form id="LoginForm" method="get" action="play">
+    <form id="LoginForm">
                 <div>
                     <h1>🐧Join the <del>cult</del> click🐧</h1>
                     <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
@@ -46,8 +48,8 @@ export function Unauthenticated(props) {
                     <span className = "Emoji">🔒</span>
                     <input className= "LoginInput" type="password" onChange={(e) => setPassword(e.target.value)}placeholder="Password" />
                 </div>
-                <button type="submit" className = "FormButton" id = "FormLoginButton" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
-                <button type="submit" className = "FormButton" id = "FormRegisterButton" onClick={() => createUser()} disabled={!userName || !password}>Register</button>
+                <button className = "FormButton" id = "FormLoginButton" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
+                <button className = "FormButton" id = "FormRegisterButton" onClick={() => createUser()} disabled={!userName || !password}>Register</button>
             </form>
           
   )
