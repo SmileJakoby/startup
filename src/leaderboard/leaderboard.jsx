@@ -9,27 +9,55 @@ export function Leaderboard() {
 
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
-  React.useEffect(() => {
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      setScores(JSON.parse(scoresText));
-    }
-    var rankCalculateArray = JSON.parse(scoresText)
-    if (rankCalculateArray) 
-    {
-        rankCalculateArray.sort((a,b) => b.score - a.score)
-        for (const [i, score] of rankCalculateArray.entries()) {
-        if (score.username == localStorage.getItem("userName"))
-        {
-            setMyRank(i+1);
+  
+  
+  //Old code
+  // React.useEffect(() => {
+  //   const scoresText = localStorage.getItem('scores');
+  //   if (scoresText) {
+  //     setScores(JSON.parse(scoresText));
+  //   }
+  //   var rankCalculateArray = JSON.parse(scoresText)
+  //   if (rankCalculateArray) 
+  //   {
+  //       rankCalculateArray.sort((a,b) => b.score - a.score)
+  //       for (const [i, score] of rankCalculateArray.entries()) {
+  //       if (score.username == localStorage.getItem("userName"))
+  //       {
+  //           setMyRank(i+1);
+  //       }
+  //       }
+  //   } 
+  //   else 
+  //   {
+  //   setMyRank(10);
+  //   }
+  // }, []);
+
+    React.useEffect(() => {
+      fetch('/api/scores')
+        .then((response) => response.json())
+        .then((scores) => {
+          setScores(scores);
+          var rankCalculateArray = scores;
+          if (rankCalculateArray) 
+          {
+              rankCalculateArray.sort((a,b) => b.score - a.score)
+              for (const [i, score] of rankCalculateArray.entries()) {
+              if (score.username == localStorage.getItem("userName"))
+              {
+                  setMyRank(i+1);
+              }
+              }
+          } 
+          else 
+          {
+          setMyRank(10);
+          }
         }
-        }
-    } 
-    else 
-    {
-    setMyRank(10);
-    }
-  }, []);
+      );
+    }, []);
+
 //   React.useEffect(() => {
 //     if (scores.length) 
 //     {

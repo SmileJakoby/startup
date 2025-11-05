@@ -23,7 +23,7 @@ export default function App() {
       })
       .finally(() => {
         localStorage.removeItem('userName');
-        props.onLogout();
+        //props.onLogout();
       });
     localStorage.removeItem("userName");
     setAuthState(AuthState.Unauthenticated);
