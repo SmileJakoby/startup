@@ -37,7 +37,10 @@ export function Unauthenticated(props) {
     //<form id="LoginForm" method="get" action="play">
     <section>
                 <div>
-                    <h1>🐧Join the <del>cult</del> click🐧</h1>
+                    <h1>🐧Join the <del>cult</del> click🐧 <br></br>
+                    {displayError}
+                    </h1>
+                    
                 </div>
                 <div>
                     <span className = "Emoji">🐧</span>
