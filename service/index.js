@@ -48,6 +48,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
+  console.log(`Login was hit. Username: ${req.body.username} Password: ${req.body.password}`);
   const user = await findUser('username', req.body.username);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {

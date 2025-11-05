@@ -35,10 +35,9 @@ export function Unauthenticated(props) {
 
   return (
     //<form id="LoginForm" method="get" action="play">
-    <form id="LoginForm">
+    <section>
                 <div>
                     <h1>🐧Join the <del>cult</del> click🐧</h1>
-                    <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
                 </div>
                 <div>
                     <span className = "Emoji">🐧</span>
@@ -50,8 +49,7 @@ export function Unauthenticated(props) {
                 </div>
                 <button className = "FormButton" id = "FormLoginButton" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
                 <button className = "FormButton" id = "FormRegisterButton" onClick={() => createUser()} disabled={!userName || !password}>Register</button>
-            </form>
-          
+    </section>
   )
 }
 
