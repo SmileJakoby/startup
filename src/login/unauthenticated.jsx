@@ -41,7 +41,7 @@ export function Unauthenticated(props) {
                 </div>
                 <div>
                     <span className = "Emoji">🐧</span>
-                    <input className= "LoginInput" type="text" onChange={(e) => setUserName(e.target.value)}placeholder="Email" />
+                    <input className= "LoginInput" type="text" onChange={(e) => setUserName(e.target.value)}placeholder="Username" />
                 </div>
                 <div>
                     <span className = "Emoji">🔒</span>

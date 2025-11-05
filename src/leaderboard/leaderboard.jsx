@@ -19,7 +19,7 @@ export function Leaderboard() {
     {
         rankCalculateArray.sort((a,b) => b.score - a.score)
         for (const [i, score] of rankCalculateArray.entries()) {
-        if (score.name == localStorage.getItem("userName"))
+        if (score.username == localStorage.getItem("userName"))
         {
             setMyRank(i+1);
         }
@@ -54,7 +54,7 @@ export function Leaderboard() {
       scoreRows.push(
         <tr key={i}>
           <td>{i+1}</td>
-          <td>{score.name}</td>
+          <td>{score.username}</td>
           <td>{score.score}</td>
         </tr>
       );
@@ -75,7 +75,7 @@ export function Leaderboard() {
             <thead className="table-dark" id="LeardBoardHead">
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
+                    <th>Username</th>
                     <th>Score</th>
                 </tr>
             </thead>
