@@ -15,7 +15,7 @@ export function Unauthenticated(props) {
     loginOrCreate(`/api/auth/create`);
   }
 
-   async function loginOrCreate(endpoint) {
+  async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
       method: 'post',
       body: JSON.stringify({ username: userName, password: password }),
@@ -36,6 +36,7 @@ export function Unauthenticated(props) {
     <form id="LoginForm" method="get" action="play">
                 <div>
                     <h1>🐧Join the <del>cult</del> click🐧</h1>
+                    <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
                 </div>
                 <div>
                     <span className = "Emoji">🐧</span>
@@ -48,6 +49,7 @@ export function Unauthenticated(props) {
                 <button type="submit" className = "FormButton" id = "FormLoginButton" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
                 <button type="submit" className = "FormButton" id = "FormRegisterButton" onClick={() => createUser()} disabled={!userName || !password}>Register</button>
             </form>
+          
   )
 }
 
