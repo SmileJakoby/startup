@@ -44,10 +44,10 @@ export function Leaderboard() {
           {
               rankCalculateArray.sort((a,b) => b.score - a.score)
               for (const [i, score] of rankCalculateArray.entries()) {
-              if (score.username == localStorage.getItem("userName"))
-              {
-                  setMyRank(i+1);
-              }
+                if (score.username == localStorage.getItem("userName"))
+                {
+                    setMyRank(i+1);
+                }
               }
           } 
           else 

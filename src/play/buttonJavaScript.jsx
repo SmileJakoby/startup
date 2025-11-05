@@ -8,6 +8,18 @@ const [userCountInt, setUserCountInt] = React.useState(Number(localStorage.getIt
 const [displayError, setDisplayError] = React.useState(null);
 
 React.useEffect(() => {
+
+    fetch('/api/scores')
+      .then((response) => response.json())
+      .then((scores) => {
+        for (const [i, score] of scores.entries()) {
+            if (score.username == localStorage.getItem("userName"))
+            {
+                setUserCountInt(score.score)
+            }
+        }
+      });
+
     const myInterval = setInterval(() => {passiveIncreaseToGlobal()}, 200);
     return () => clearInterval(myInterval);
 }, []);
