@@ -110,12 +110,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - The backend now constantly runs a server, running an index.js file. 
+- [x] **Static middleware for frontend** - I added app.use(express.static('public')); to the index.js file of the service. The frontend will treat anything in the public directory as a static file, so it won't misinterperet them as an endpoint to fetch from.
+- [x] **Calls to third party endpoints** - The about page displays a random image (in color! wowww)
+- [x] **Backend service endpoints** - The following post endpoints were made: Create User, Login User, and New Score (lowkey with my implementation this one should be a put. Oh well!). The following get endpoints were made: Get Leaderboard, Get Global Count. A delete endpoint for Logout was made.
+- [x] **Frontend calls service endpoints** - The login page calls the Login/Create endpoint when Login/Create buttons are pushed respectively. The play page calls the Get Leaderboard endpoint when first loading to sync the user's data with that of the server. When the player clicks the button, the New Score endpoint is called. The Leaderboard page simply calls the Get Leaderboard endpoint to fill up its array of data. The About page calls a third party to get a random image, and also calls the Get Global Count endpoint to display the current global count. The play page does not call this endpoint because on that page it is planned on being implemented with a websocket. However, I still wanted to prove that the global count is being tracked by the server.
+- [x] **Supports registration, login, logout, and restricted endpoint** - Registration, Login, and Logout have all been implemented, and function as you would expect. Most endpoints are not restricted, notably the Get Leaderboard endpoint, which in Simon is restricted but I saw no reason to restrict it. The only restricted endpoint is the Post Score endpoint. If a player accesses the /play page without being logged in, they will be alerted of their authentication status if they click the button.
 
 
 ## 🚀 DB deliverable
