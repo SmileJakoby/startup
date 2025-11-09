@@ -17,3 +17,19 @@ const globalScoreCollection = db.collection('globalScore');
     process.exit(1);
   }
 })();
+
+function getUser(username) {
+  return userCollection.findOne({ username: username });
+}
+
+function getUserByToken(token) {
+  return userCollection.findOne({ token: token });
+}
+
+async function addUser(user) {
+  await userCollection.insertOne(user);
+}
+
+async function updateUser(user) {
+  await userCollection.updateOne({ username: user.username }, { $set: user });
+}
