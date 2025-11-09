@@ -34,12 +34,14 @@ async function updateUser(user) {
   await userCollection.updateOne({ username: user.username }, { $set: user });
 }
 
-async function addScore(score) {
-  return scoreCollection.insertOne(score);
-}
 
 async function updateScore(score) {
   prevScore = await scoreCollection.findOne({username: score.username});
+  if (prevScore == null)
+  {
+    prevScore = score
+    prevScore.score = 0;
+  }
   prevScore.score = parseInt(prevScore.score) + parseInt(1);
   
   return scoreCollection.updateOne({username: score.username}, { $set: prevScore}, {upsert: true});
@@ -71,7 +73,6 @@ module.exports = {
   getUserByToken,
   addUser,
   updateUser,
-  addScore,
   updateScore,
   getHighScores,
   createGlobalScore,
