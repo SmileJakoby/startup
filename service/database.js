@@ -11,7 +11,7 @@ const globalScoreCollection = db.collection('globalScore');
 (async function testConnection() {
   try {
     await db.command({ ping: 1 });
-    console.log(`Connect to database`);
+    console.log(`Connected to database`);
   } catch (ex) {
     console.log(`Unable to connect to database with ${url} because ${ex.message}`);
     process.exit(1);
