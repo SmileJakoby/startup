@@ -67,7 +67,7 @@ async function updateGlobalScore(globalScore) {
   if (prevScore == null)
   {
     prevScore = globalScore
-    prevScore.score = 0;
+    prevScore.score = 1;
   }
   prevScore.score = parseInt(prevScore.score) + parseInt(1);
   
