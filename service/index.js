@@ -102,7 +102,8 @@ apiRouter.post('/score', verifyAuth, async (req, res) => {
 });
 
 apiRouter.get('/globalcount', (_req, res) => {
-  res.send(globalCount.score);
+  console.log(`globalcount was hit. globalCount.score: ${globalCount.score}`);
+  res.send(parseInt(globalCount.score));
 });
 
 // Default error handler
@@ -121,7 +122,7 @@ async function updateScores(newScore) {
   await DB.updateScore(newScore);
   globalCount.score = parseInt(globalCount.score) + parseInt(1);
   await DB.updateGlobalScore(globalCount);
-  globalCount.score = await DB.getGlobalScore().score;
+  globalCount = await DB.getGlobalScore();
   return DB.getHighScores();
 }
 
