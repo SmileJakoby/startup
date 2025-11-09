@@ -69,5 +69,9 @@ module.exports = {
   addUser,
   updateUser,
   addScore,
+  updateScore,
   getHighScores,
+  createGlobalScore,
+  getGlobalScore,
+  updateGlobalScore,
 };
