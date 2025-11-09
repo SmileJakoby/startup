@@ -96,7 +96,7 @@ apiRouter.get('/scores', async (_req, res) => {
 
 // SubmitScore
 apiRouter.post('/score', verifyAuth, async (req, res) => {
-  console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
+  //console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
   scores = updateScores(req.body);
   res.send(scores);
 });
