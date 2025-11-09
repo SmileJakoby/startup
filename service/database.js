@@ -50,3 +50,24 @@ function getHighScores() {
   const cursor = scoreCollection.find(query, options);
   return cursor.toArray();
 }
+
+async function createGlobalScore(globalScore) {
+    await globalScoreCollection.insertOne(globalScore);
+}
+
+async function getGlobalScore() {
+  return globalScoreCollection.findOne({ theKey: 'global' });
+}
+
+async function updateGlobalScore(globalScore) {
+  return scoreCollection.updateOne({theKey: 'global'}, { $set: globalScore});
+}
+
+module.exports = {
+  getUser,
+  getUserByToken,
+  addUser,
+  updateUser,
+  addScore,
+  getHighScores,
+};
