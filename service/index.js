@@ -13,7 +13,7 @@ const authCookieName = 'token';
 
 //A score includes the following:
 //username, score
-let scores = [];
+//let scores = [];
 let globalCount = 0;
 
 //Set the port to 4000
@@ -89,12 +89,13 @@ apiRouter.get('/checkauth', verifyAuth, (req, res) => {
 })
 
 // GetScores
-apiRouter.get('/scores', (_req, res) => {
+apiRouter.get('/scores', async (_req, res) => {
+  const scores = await DB.getHighScores();
   res.send(scores);
 });
 
 // SubmitScore
-apiRouter.post('/score', verifyAuth, (req, res) => {
+apiRouter.post('/score', verifyAuth, async (req, res) => {
   console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
   scores = updateScores(req.body);
   res.send(scores);
@@ -116,28 +117,29 @@ app.use((_req, res) => {
 
 //Updates a user's score, or creates a new row if this is the first time.
 //Updates the globalCount.
-function updateScores(newScore) {
-  let found = false;
-  let scoreDiff = 1;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.username == prevScore.username) {
-      //scoreDiff = (newScore.score - prevScore.score);
-      //prevScore.score = newScore.score;
-      prevScore.score = parseInt(prevScore.score) + parseInt(1);
-      found = true;
-      globalCount = parseInt(globalCount) + parseInt(scoreDiff);
-      break;
-    }
-  }
-  if (!found) {
-    newScore.score = 1;
-    scores.push(newScore);
-    globalCount = parseInt(globalCount) + parseInt(newScore.score);
-  }
-  console.log(`New global count: ${globalCount}`);
+async function updateScores(newScore) {
+  await DB.updateScore(newScore);
+  // let found = false;
+  // let scoreDiff = 1;
+  // for (const [i, prevScore] of scores.entries()) {
+  //   if (newScore.username == prevScore.username) {
+  //     //scoreDiff = (newScore.score - prevScore.score);
+  //     //prevScore.score = newScore.score;
+  //     prevScore.score = parseInt(prevScore.score) + parseInt(1);
+  //     found = true;
+  //     globalCount = parseInt(globalCount) + parseInt(scoreDiff);
+  //     break;
+  //   }
+  // }
+  // if (!found) {
+  //   newScore.score = 1;
+  //   scores.push(newScore);
+  //   globalCount = parseInt(globalCount) + parseInt(newScore.score);
+  // }
+  // console.log(`New global count: ${globalCount}`);
   
 
-  return scores;
+  return DB.getHighScores();
 }
 
 async function createUser(username, password) {
