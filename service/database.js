@@ -33,3 +33,20 @@ async function addUser(user) {
 async function updateUser(user) {
   await userCollection.updateOne({ username: user.username }, { $set: user });
 }
+
+async function addScore(score) {
+  return scoreCollection.insertOne(score);
+}
+
+async function updateScore(score) {
+  return scoreCollection.updateOne({username: score.username}, { $set: score});
+}
+
+function getHighScores() {
+  const query = { score: { $gt: 0} };
+  const options = {
+    sort: { score: -1 },
+  };
+  const cursor = scoreCollection.find(query, options);
+  return cursor.toArray();
+}
