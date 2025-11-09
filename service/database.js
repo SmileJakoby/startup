@@ -39,7 +39,9 @@ async function addScore(score) {
 }
 
 async function updateScore(score) {
-  return scoreCollection.updateOne({username: score.username}, { $set: score}, {upsert: true});
+  prevScore = scoreCollection.findOne({username: score.username});
+  prevScore.score = parseInt(prevScore.score) + parseInt(1);
+  return scoreCollection.updateOne({username: score.username}, { $set: prevScore}, {upsert: true});
 }
 
 function getHighScores() {
