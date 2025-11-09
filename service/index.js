@@ -14,7 +14,7 @@ const authCookieName = 'token';
 //A score includes the following:
 //username, score
 //let scores = [];
-let globalCount = 0;
+let globalCount = {theKey: 'global', score: 0};
 
 //Set the port to 4000
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -102,7 +102,7 @@ apiRouter.post('/score', verifyAuth, async (req, res) => {
 });
 
 apiRouter.get('/globalcount', (_req, res) => {
-  res.send(globalCount);
+  res.send(globalCount.score);
 });
 
 // Default error handler
@@ -119,8 +119,9 @@ app.use((_req, res) => {
 //Updates the globalCount.
 async function updateScores(newScore) {
   await DB.updateScore(newScore);
-  
-
+  globalCount.score = parseInt(globalCount.score) + parseInt(1);
+  await DB.updateGlobalScore(globalCount);
+  globalCount.score = await DB.getGlobalScore().score;
   return DB.getHighScores();
 }
 
