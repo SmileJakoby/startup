@@ -56,16 +56,22 @@ function getHighScores() {
   return cursor.toArray();
 }
 
-async function createGlobalScore(globalScore) {
-    await globalScoreCollection.insertOne(globalScore);
-}
+
 
 async function getGlobalScore() {
-  return globalScoreCollection.findOne({ theKey: 'global' });
+  return globalScoreCollection.findOne({ theKey: 'global'});
 }
 
 async function updateGlobalScore(globalScore) {
-  return scoreCollection.updateOne({theKey: 'global'}, { $set: globalScore});
+  prevScore = await globalScoreCollection.findOne({theKey: 'global'});
+  if (prevScore == null)
+  {
+    prevScore = globalScore
+    prevScore.score = 0;
+  }
+  prevScore.score = parseInt(prevScore.score) + parseInt(1);
+  
+  return globalScoreCollection.updateOne({theKey: 'global'}, { $set: prevScore}, {upsert: true});
 }
 
 module.exports = {
@@ -75,7 +81,6 @@ module.exports = {
   updateUser,
   updateScore,
   getHighScores,
-  createGlobalScore,
   getGlobalScore,
   updateGlobalScore,
 };
