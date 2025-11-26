@@ -1,7 +1,6 @@
 const GameEvent = {
   System: 'system',
-  End: 'gameEnd',
-  Start: 'gameStart',
+  ReceiveGlobalScore: 'receiveGlobalScore',
 };
 
 class EventMessage {

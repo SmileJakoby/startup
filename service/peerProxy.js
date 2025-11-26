@@ -1,8 +1,19 @@
 const { WebSocketServer } = require('ws');
+const DB = require('./database.js');
+
+class EventMessage {
+  constructor(from, type, value) {
+    this.from = from;
+    this.type = type;
+    this.value = value;
+  }
+}
 
 function peerProxy(httpServer) {
   // Create a websocket object
   const socketServer = new WebSocketServer({ server: httpServer });
+
+  let globalCount = {theKey: 'global', score: 0};
 
   socketServer.on('connection', (socket) => {
     socket.isAlive = true;
@@ -31,6 +42,18 @@ function peerProxy(httpServer) {
       client.ping();
     });
   }, 10000);
+
+  async function updateCounter() {
+  globalCount = await DB.getGlobalScore();
+  }
+  const intervalId = setInterval(updateCounter, 1000);
+
+  setInterval(() => {
+    const event = new EventMessage('theServer', 'receiveGlobalScore', globalCount.score);
+    socketServer.clients.forEach(function each(client) {
+      socketServer.client.send(JSON.stringify(event));
+    });
+  }, 1000);
 }
 
 module.exports = { peerProxy };
