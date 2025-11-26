@@ -101,14 +101,14 @@ apiRouter.get('/scores', async (_req, res) => {
 apiRouter.post('/score', verifyAuth, async (req, res) => {
   //console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
   console.log("current contents of autoClickUsernames: %s", autoClickUsernames.toString());
-  if (autoClickUsernames.includes(req.body.username) || bannedUsernames.includes(req.body.username)){
-    bannedUsernames.push(req.body.username);
-    res.status(403).send({ msg: 'Auto clicker detected'});
-  }
-  else{
+  // if (autoClickUsernames.includes(req.body.username) || bannedUsernames.includes(req.body.username)){
+  //   bannedUsernames.push(req.body.username);
+  //   res.status(403).send({ msg: 'Auto clicker detected'});
+  // }
+  // else{
   scores = updateScores(req.body);
   res.send(scores);
-  }
+  //}
 });
 
 apiRouter.get('/globalcount', (_req, res) => {
@@ -133,7 +133,7 @@ async function updateScores(newScore) {
   globalCount.score = parseInt(globalCount.score) + parseInt(1);
   await DB.updateGlobalScore(globalCount);
   globalCount = await DB.getGlobalScore();
-  autoClickUsernames.push(newScore.username);
+  //autoClickUsernames.push(newScore.username);
   return DB.getHighScores();
 }
 
@@ -177,10 +177,10 @@ const httpService = app.listen(port, () => {
 
 peerProxy(httpService);
 
-setInterval(() => {
-    autoClickUsernames.length = 0;
-  }, 1);
+// setInterval(() => {
+//     autoClickUsernames.length = 0;
+//   }, 1);
 
-setInterval(() => {
-    bannedUsernames.length = 0;
-  }, 10000);
+// setInterval(() => {
+//     bannedUsernames.length = 0;
+//   }, 10000);
