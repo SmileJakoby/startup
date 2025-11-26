@@ -17,7 +17,7 @@ function peerProxy(httpServer) {
 
   socketServer.on('connection', (socket) => {
     socket.isAlive = true;
-
+    console.log("received clienet");
     // Forward messages to everyone except the sender
     socket.on('message', function message(data) {
       socketServer.clients.forEach((client) => {
@@ -51,7 +51,7 @@ function peerProxy(httpServer) {
   setInterval(() => {
     const event = new EventMessage('theServer', 'receiveGlobalScore', globalCount.score);
     socketServer.clients.forEach(function each(client) {
-      socketServer.client.send(JSON.stringify(event));
+      client.send(JSON.stringify(event));
     });
   }, 1000);
 }

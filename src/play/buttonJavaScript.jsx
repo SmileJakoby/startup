@@ -21,10 +21,10 @@ React.useEffect(() => {
 });
 
 function handleGameEvent(event) {
-  console.log("received event: %s", event.JSON);
-  if (event.type === GameEvent.ReceiveGlobalScore) {
-      setGlobalCountInt(Number(event.value));
-  }
+  console.log("Hello!");
+  //if (event.type === GameEvent.ReceiveGlobalScore) {
+  //    setGlobalCountInt(Number(event.value));
+  //}
 }
 
 function displayGlobalCount() {
@@ -63,7 +63,7 @@ React.useEffect(() => {
       });
 
     //const myInterval = setInterval(() => {passiveIncreaseToGlobal()}, 200);
-    return () => clearInterval(myInterval);
+    //return () => clearInterval(myInterval);
 }, []);
 
 function pushButton(){
