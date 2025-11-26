@@ -50,7 +50,7 @@ function peerProxy(httpServer) {
 
   setInterval(() => {
     const event = new EventMessage('theServer', 'receiveGlobalScore', globalCount.score);
-    console.log("client count: %d", socketServer.clients.size);
+    console.log("Client count: %d", socketServer.clients.size);
     socketServer.clients.forEach(function each(client) {
       client.send(JSON.stringify(event));
     });
