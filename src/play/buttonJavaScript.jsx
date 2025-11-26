@@ -90,8 +90,6 @@ async function saveScore() {
     const date = new Date().toLocaleDateString();
     const newScore = { username: localStorage.getItem("userName"), score: localStorage.getItem("UserCount" + localStorage.getItem("userName")), date: date };
 
-    // Let other players know the game has concluded
-    //GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
     const response = await fetch('/api/score', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },

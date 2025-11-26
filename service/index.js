@@ -17,6 +17,7 @@ const authCookieName = 'token';
 //let scores = [];
 let globalCount = {theKey: 'global', score: 0};
 let autoClickUsernames = [];
+let bannedUsernames = [];
 
 //Set the port to 4000
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -99,8 +100,10 @@ apiRouter.get('/scores', async (_req, res) => {
 // SubmitScore
 apiRouter.post('/score', verifyAuth, async (req, res) => {
   //console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
-  if (autoClickUsernames.includes(newScore.username)){
-    res.status(403).send("Auto Clicker Detected");
+  console.log("current contents of autoClickUsernames: %s", autoClickUsernames.toString());
+  if (autoClickUsernames.includes(req.body.username) || bannedUsernames.includes(req.body.username)){
+    bannedUsernames.push(req.body.username);
+    res.status(403).send({ msg: 'Auto clicker detected'});
   }
   else{
   scores = updateScores(req.body);
@@ -173,3 +176,11 @@ const httpService = app.listen(port, () => {
 });
 
 peerProxy(httpService);
+
+setInterval(() => {
+    autoClickUsernames.length = 0;
+  }, 1);
+
+setInterval(() => {
+    bannedUsernames.length = 0;
+  }, 10000);
