@@ -1,11 +1,53 @@
 import React from 'react';
 import './play.css'
+import { GameEvent, GameNotifier } from './gameNotifier';
 
 export function ButtonJavaScript() {
 const [buttonPushed, setButtonPushed] = React.useState("PenguinButton.png");
 const [globalCountInt, setGlobalCountInt] = React.useState(Number(localStorage.getItem("globalCountStorage")));
 const [userCountInt, setUserCountInt] = React.useState(Number(localStorage.getItem("UserCount" + localStorage.getItem("userName"))));
 const [displayError, setDisplayError] = React.useState(null);
+
+
+
+const [events, setEvent] = React.useState([]);
+
+React.useEffect(() => {
+  GameNotifier.addHandler(handleGameEvent);
+
+  return () => {
+    GameNotifier.removeHandler(handleGameEvent);
+  };
+});
+
+function handleGameEvent(event) {
+  console.log("received event: %s", event.JSON);
+  if (event.type === GameEvent.ReceiveGlobalScore) {
+      setGlobalCountInt(Number(event.value));
+  }
+}
+
+function displayGlobalCount() {
+  const messageArray = [];
+  for (const [i, event] of events.entries()) {
+    let message = 'unknown';
+    if (event.type === GameEvent.End) {
+      message = `scored ${event.value.score}`;
+    } else if (event.type === GameEvent.Start) {
+      message = `started a new game`;
+    } else if (event.type === GameEvent.System) {
+      message = event.value.msg;
+    }
+
+    messageArray.push(
+      <div key={i} className='event'>
+        <span className={'player-event'}>{event.from.split('@')[0]}</span>
+        {message}
+      </div>
+    );
+  }
+  return messageArray;
+}
 
 React.useEffect(() => {
 
@@ -20,7 +62,7 @@ React.useEffect(() => {
         }
       });
 
-    const myInterval = setInterval(() => {passiveIncreaseToGlobal()}, 200);
+    //const myInterval = setInterval(() => {passiveIncreaseToGlobal()}, 200);
     return () => clearInterval(myInterval);
 }, []);
 
