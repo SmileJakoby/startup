@@ -16,6 +16,7 @@ const authCookieName = 'token';
 //username, score
 //let scores = [];
 let globalCount = {theKey: 'global', score: 0};
+let autoClickUsernames = [];
 
 //Set the port to 4000
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -98,8 +99,13 @@ apiRouter.get('/scores', async (_req, res) => {
 // SubmitScore
 apiRouter.post('/score', verifyAuth, async (req, res) => {
   //console.log(`Submit score was hit. Username: ${req.body.username} Score: ${req.body.score}`);
+  if (autoClickUsernames.includes(newScore.username)){
+    res.status(403).send("Auto Clicker Detected");
+  }
+  else{
   scores = updateScores(req.body);
   res.send(scores);
+  }
 });
 
 apiRouter.get('/globalcount', (_req, res) => {
@@ -124,6 +130,7 @@ async function updateScores(newScore) {
   globalCount.score = parseInt(globalCount.score) + parseInt(1);
   await DB.updateGlobalScore(globalCount);
   globalCount = await DB.getGlobalScore();
+  autoClickUsernames.push(newScore.username);
   return DB.getHighScores();
 }
 
