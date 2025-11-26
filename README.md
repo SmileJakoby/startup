@@ -122,8 +122,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - Two non-credential collections exist. The more substantial one is the 'score' collection, storing a username-score combo. Each person only has one score. The more superficial one is the globalScore collection, which literally only stores one score. This score, of course, is the Global Score (all other scores combined). This was placed in a separate collection to make the implementation of the leaderboard not have to account for a score it needs to ignore. In hindsight, I very well could have made globalCount just show the sum of all other scores instead of being tracked separately. Oh well!
+- [x] **Stores credentials in MongoDB** - A 'users' collection exists in MongoDB, associating a username with a password and an authToken. The passwords are, of course, encrypted.
 
 ## 🚀 WebSocket deliverable
 
