@@ -21,10 +21,10 @@ React.useEffect(() => {
 });
 
 function handleGameEvent(event) {
-  console.log("Hello!");
-  //if (event.type === GameEvent.ReceiveGlobalScore) {
-  //    setGlobalCountInt(Number(event.value));
-  //}
+  if (event.type === GameEvent.ReceiveGlobalScore) {
+      setGlobalCountInt(Number(event.value));
+      localStorage.setItem("globalCountStorage",globalCountInt);
+  }
 }
 
 function displayGlobalCount() {
@@ -68,7 +68,7 @@ React.useEffect(() => {
 
 function pushButton(){
     setButtonPushed("PenguinButtonPushed.png");
-    setGlobalCountInt(Number(localStorage.getItem("globalCountStorage")));
+    //setGlobalCountInt(Number(localStorage.getItem("globalCountStorage")));
     setUserCountInt(userCountInt+1);
     localStorage.setItem("globalCountStorage",Number(localStorage.getItem("globalCountStorage")) + 1);
     localStorage.setItem("UserCount" + localStorage.getItem("userName"), userCountInt + 1)

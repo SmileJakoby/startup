@@ -48,7 +48,6 @@ class GameEventNotifier {
   }
 
   receiveEvent(event) {
-    console.log("receiveEvent was hit");
     this.events.push(event);
 
     this.events.forEach((e) => {
