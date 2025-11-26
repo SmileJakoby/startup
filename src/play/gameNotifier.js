@@ -28,9 +28,9 @@ class GameEventNotifier {
     };
     this.socket.onmessage = async (msg) => {
       try {
-        const event = JSON.parse(await msg.data.text());
+        const event = JSON.parse(msg.data);
         this.receiveEvent(event);
-      } catch {}
+      } catch {console.log("The try failed");}
     };
   }
 
@@ -48,6 +48,7 @@ class GameEventNotifier {
   }
 
   receiveEvent(event) {
+    console.log("receiveEvent was hit");
     this.events.push(event);
 
     this.events.forEach((e) => {
